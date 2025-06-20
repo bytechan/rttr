@@ -60,7 +60,8 @@ option(BUILD_PACKAGE "Enable this to build the installer" ON)
 option(USE_PCH "Use precompiled header files for compilation" ON)
 option(CUSTOM_DOXYGEN_STYLE "Enable this option to use a custom doxygen style for HTML documentation; Otherwise the default will be used" ON)
 option(BUILD_WEBSITE_DOCU "Enable this option to create the special docu for the website" OFF)
-option(USE_RELATIVE_IMPORT_PREFIX "Enable this to compute the installation prefix relative to exported file" OFF)
+set(CXX_STANDARD "AUTO" CACHE STRING "指定C++标准 (AUTO, 11, 14, 17)")
+set_property(CACHE CXX_STANDARD PROPERTY STRINGS AUTO 11 14 17)
 
 # one precompiled headers cannot be used for multiple ninja targets
 # thats why we have to disable this option, when BUILD_STATIC or
