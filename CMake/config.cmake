@@ -120,10 +120,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_rtti(BUILD_WITH_RTTI)
 
-get_latest_supported_cxx(CXX_STANDARD)
-set(MAX_CXX_STANDARD ${CXX_STANDARD})
-
-message(STATUS "using C++: ${MAX_CXX_STANDARD}")
+if(CXX_STANDARD STREQUAL "AUTO")
+  get_latest_supported_cxx(DETECTED_CXX_STANDARD)
+  set(MAX_CXX_STANDARD ${DETECTED_CXX_STANDARD})
+  message(STATUS "Auto detected CXX_STANDARD: ${MAX_CXX_STANDARD}")
+else()
+  set(MAX_CXX_STANDARD ${CXX_STANDARD})
+  message(STATUS "User Specified CXX_STANDARD: ${MAX_CXX_STANDARD}")
+endif()
 
 # RelWithDepInfo should have the same option like the Release build
 # but of course with Debug informations
