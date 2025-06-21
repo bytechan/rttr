@@ -127,6 +127,7 @@ set(HEADER_FILES access_levels.h
                  detail/property/property_wrapper_base.h
                  detail/property/property_wrapper_func.h
                  detail/property/property_wrapper_member_func.h
+                 detail/property/property_wrapper_member_functor.h
                  detail/property/property_wrapper_member_object.h
                  detail/property/property_wrapper_object.h
                  detail/registration/bind_types.h
